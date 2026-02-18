@@ -1,0 +1,66 @@
+// Two-column layout: content + TOC sidebar
+.content-with-toc {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.content-main {
+  flex: 1;
+  min-width: 0;
+}
+
+// TOC sidebar
+.toc-sidebar {
+  flex: 0 0 200px;
+  position: sticky;
+  top: 4rem;
+  max-height: calc(100vh - 6rem);
+  overflow-y: auto;
+}
+
+.toc-wrapper {
+  border-left: 2px solid $border-color;
+  padding-left: 1rem;
+  font-size: 0.8rem;
+
+  .toc-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $grey-dk-100;
+    margin-bottom: 0.5rem;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  ul ul {
+    padding-left: 0.75rem;
+  }
+
+  li {
+    margin: 0.3rem 0;
+    line-height: 1.4;
+  }
+
+  a {
+    color: $grey-dk-100;
+    text-decoration: none;
+
+    &:hover {
+      color: $link-color;
+    }
+  }
+}
+
+// Hide TOC sidebar on small screens
+@media (max-width: 1024px) {
+  .toc-sidebar {
+    display: none;
+  }
+}
