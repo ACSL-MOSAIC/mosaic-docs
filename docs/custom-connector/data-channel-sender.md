@@ -137,19 +137,9 @@ The `label` becomes the DataChannel name used by the dashboard to identify the s
 
 ---
 
-## Built-in Example: NavSatFix Sender
+## Example
 
-`ros2-sender-sensor-NavSatFix` in `mosaic-ros2-sensor` is a complete reference implementation of this pattern. It subscribes to a `sensor_msgs/NavSatFix` ROS2 topic and sends the GPS coordinates as JSON:
-
-```cpp
-// On each message callback:
-Json::Value json;
-json["latitude"]  = msg->latitude;
-json["longitude"] = msg->longitude;
-json["altitude"]  = msg->altitude;
-json["timestamp"] = timestamp_us;
-SendJson(json);
-```
+For a complete real-world implementation, see [`laser_scan_sender.cpp`](https://github.com/ACSL-MOSAIC/mosaic-turtlebot3-wo-ros-example/blob/master/src/mosaic/laser_scan_sender.cpp) from the TurtleBot3 example. It reads LiDAR scan data from hardware and sends it as JSON over a DataChannel, following the same pattern described above.
 
 ---
 

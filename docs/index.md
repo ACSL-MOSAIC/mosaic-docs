@@ -33,5 +33,5 @@ Once the initial WebRTC handshake completes through MOSAIC-Server, video and dat
 ## Get started
 
 - [What is MOSAIC?]({% link docs/what-is-mosaic.md %}) — architecture and design rationale
-- [Installation]({% link docs/installation/index.md %}) — set up the server and robot-side library
+- [Integration Guide]({% link docs/integration-guide.md %}) — how to set up the server and connect your robot
 - [Key Concepts]({% link docs/key-concept.md %}) — connectors, data channels, and media streams

@@ -81,11 +81,14 @@ docker compose build
 **arm64 (Raspberry Pi / Jetson) — cross-compilation from x86_64 host:**
 
 ```bash
-cd docker
-bash build-arm64.sh
+docker buildx build \
+    --platform linux/arm64 \
+    --tag your-robot-image:arm64 \
+    --load \
+    .
 ```
 
-The arm64 script uses `docker buildx` with QEMU emulation. The resulting image can be saved and transferred to the target device:
+This uses `docker buildx` with QEMU emulation. The resulting image can be saved and transferred to the target device:
 
 ```bash
 docker save your-image:arm64 | gzip > robot-image.tar.gz

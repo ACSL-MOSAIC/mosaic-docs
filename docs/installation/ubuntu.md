@@ -9,7 +9,7 @@ nav_order: 1
 This guide covers building and installing **mosaic-core** — the robot-side C++ library — on Ubuntu.
 
 {: .note }
-> mosaic-core has been tested on **Ubuntu 22.04 (x86_64 / arm64)**.
+> mosaic-core has been tested on **Ubuntu 24.04 (x86_64 / arm64)**.
 
 ---
 

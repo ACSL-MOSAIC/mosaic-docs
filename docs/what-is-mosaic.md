@@ -92,3 +92,15 @@ MOSAIC is aimed at robotics researchers and engineers who want to:
 - Stream **live video** from robots without a dedicated streaming server
 - Build a **custom operator dashboard** without implementing WebRTC from scratch
 - Integrate with **existing ROS2** systems with minimal boilerplate
+
+---
+
+## Getting Started
+
+Ready to integrate MOSAIC with your robot? The [Integration Guide]({% link docs/integration-guide.md %}) walks through everything — from setting up the server to streaming data from your robot.
+
+---
+
+## Contributing
+
+MOSAIC is open source and contributions are welcome. See the [Contribution]({% link docs/contribution.md %}) page for guidelines on reporting issues, submitting pull requests, and coding style.

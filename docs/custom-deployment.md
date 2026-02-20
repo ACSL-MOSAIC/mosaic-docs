@@ -1,6 +1,6 @@
 ---
 title: Custom Deployment
-nav_order: 8
+nav_order: 9
 ---
 
 # Custom Deployment
@@ -70,6 +70,29 @@ MOSAIC_SECURITY_ENCRYPTION_KEY=your-base64-encoded-aes256-key
 | `POSTGRES_PASSWORD` | PostgreSQL password |
 | `POSTGRES_DB` | Database name (default: `mosaic`) |
 | `MOSAIC_SECURITY_ENCRYPTION_KEY` | AES-256 key for encrypting robot auth tokens (Base64-encoded) |
+
+### Generating the Encryption Key
+
+A utility test [`AESKeyGeneratorTest`](https://github.com/ACSL-MOSAIC/MOSAIC-Server/blob/main/backend/src/test/java/com/gistacsl/mosaic/cryptor/AESKeyGeneratorTest.java) is provided in the repository.
+Run it from your IDE or via CLI to generate the key:
+
+```bash
+# From the repository root
+cd backend
+./gradlew :test --tests "com.gistacsl.mosaic.cryptor.AESKeyGeneratorTest.generateAESKey" --info
+```
+
+The generated key is printed to the console:
+
+```
+================================================================================
+Generated AES-256 Encryption Key:
+================================================================================
+<your-base64-encoded-key>
+================================================================================
+```
+
+Copy the printed key and set it as `MOSAIC_SECURITY_ENCRYPTION_KEY` in your `.env` file.
 
 ---
 

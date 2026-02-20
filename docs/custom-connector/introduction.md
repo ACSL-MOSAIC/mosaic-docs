@@ -79,11 +79,19 @@ AutoConfigure("mosaic_config.yaml")
 ### YAML Structure
 
 ```yaml
-mosaic:
-  server_url: 'wss://api-mosaic.your-domain.com/ws/robot'
-  robot_id: 'my-robot'
-  password: 'secret'
-  stun_server_url: 'stun:stun.l.google.com:19302'
+server:
+  ws_url: 'wss://api-mosaic.your-domain.com'
+  auth:
+    type: 'simple-token'
+    robot_id: '<robot-uuid>'
+    params:
+      token: '<encrypted-token>'
+  webrtc:
+    ice_servers:
+      - urls:
+          - 'turn:your-turn-server:3478'
+        username: 'username'
+        credential: 'credential'
 
 connectors:
   - type: 'my-sensor-sender'      # matched against GetConnectorType()

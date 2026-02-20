@@ -17,7 +17,7 @@ This guide covers building and installing the **mosaic-ros2** packages, which br
 
 ### 1. Install mosaic-core
 
-mosaic-ros2 depends on mosaic-core. Follow the [Installation on Ubuntu](ubuntu.md) guide first to install mosaic-core.
+mosaic-ros2 depends on mosaic-core. Follow the [Installation on Ubuntu](ubuntu.html) guide first to install mosaic-core.
 
 ### 2. Install ROS2
 
@@ -86,13 +86,13 @@ source ~/ros2_ws/install/setup.bash
 
 ### 1. Prepare a Config File
 
-Create a `mosaic_config.yaml` file. See [Config on Robot](../config-on-robot.md) for the full reference.
+Create a `mosaic_config.yaml` file. See [Config on Robot](../config-on-robot.html) for the full reference.
 
 A minimal example:
 
 ```yaml
 server:
-  ws_url: 'wss://your-mosaic-server.com'
+  ws_url: 'wss://dev-mosaic.acslgcs.com'
   auth:
     type: 'simple-token'
     robot_id: 'your-robot-id'

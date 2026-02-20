@@ -1,6 +1,6 @@
 ---
 title: Config on Robot
-nav_order: 6
+nav_order: 7
 ---
 
 # Config on Robot
@@ -62,6 +62,13 @@ server:
 | `wss://...` | Production (TLS) |
 | `ws://...` | Local development only |
 
+If you are using the hosted open-use server, set:
+
+```yaml
+server:
+  ws_url: 'wss://dev-mosaic.acslgcs.com'
+```
+
 ---
 
 ### `auth` (required)
@@ -104,21 +111,6 @@ webrtc:
 | `urls` | List of TURN/STUN server URIs. Multiple entries are allowed. |
 | `username` | TURN server username. |
 | `credential` | TURN server password. |
-
-You can list multiple ICE servers under `ice_servers`. WebRTC tries them in order and uses the first one that succeeds.
-
-```yaml
-webrtc:
-  ice_servers:
-    - urls:
-        - 'stun:stun.l.google.com:19302'  # public STUN (no credentials needed — omit username/credential only if your server doesn't require them)
-    - urls:
-        - 'turn.your-domain.com:3478'
-      username: 'user'
-      credential: 'pass'
-```
-
----
 
 ## `connectors` Section
 
@@ -222,8 +214,6 @@ connectors:
       topic_name: '/cmd_vel'
 ```
 
----
-
 ## Notes
 
 {: .note }
@@ -234,4 +224,4 @@ connectors:
 > ```
 
 {: .note }
-> `label` must match the `connectorId` configured on the dashboard side exactly. A mismatch means the dashboard widget never receives data even though the robot is connected. See [Key Concept](../key-concept#label--connectorid-matching) for details.
+> `label` must match the `connectorId` configured on the dashboard side exactly. A mismatch means the dashboard widget never receives data even though the robot is connected. See [Key Concept](../key-concept.html#label--connectorid-matching) for details.

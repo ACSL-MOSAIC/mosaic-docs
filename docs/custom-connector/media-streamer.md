@@ -162,22 +162,9 @@ The `label` becomes the WebRTC track name visible on the dashboard. `params` are
 
 ---
 
-## Built-in Example: OpenCV Camera
+## Example
 
-mosaic-core ships `opencv-sender-camera`, which is a complete reference implementation of this pattern.
-
-```yaml
-connectors:
-  - type: 'opencv-sender-camera'
-    label: 'camera_stream'
-    params:
-      fps: 30
-      camera_id: 0
-      width: 640
-      height: 480
-```
-
-It opens a V4L2 device with `cv::VideoCapture`, reads frames in a loop, and calls `SendFrame()` — exactly the same structure as the example above.
+For a complete real-world implementation, see [`opencv_camera_mt_handler.cpp`](https://github.com/ACSL-MOSAIC/mosaic-core/blob/main/src/auto_configurer/impl/opencv_camera_mt_handler.cpp) from mosaic-core. It opens a V4L2 device with `cv::VideoCapture`, reads frames in a loop, and calls `SendFrame()` — exactly the same structure as described above.
 
 ---
 

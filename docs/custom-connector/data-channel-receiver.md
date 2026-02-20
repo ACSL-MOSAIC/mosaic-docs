@@ -171,33 +171,9 @@ connectors:
 
 ---
 
-## Built-in Examples
+## Example
 
-**TurtleBot3 teleop receiver** (`mosaic-turtlebot3-wo-ros-example`)
-
-Receives `{ "linear_x": 0.5, "angular_z": -0.3 }` from the dashboard and writes the values to a shared context struct that the main loop reads:
-
-```cpp
-void TeleopReceiver::HandleData(const Json::Value& data) {
-    ctx_->teleop->linear_x = data["linear_x"].asFloat();
-    ctx_->teleop->angular_z = data["angular_z"].asFloat();
-    ctx_->teleop_changed->store(true);
-}
-```
-
-**ROS2 Twist receiver** (`mosaic-ros2-geometry`)
-
-Receives a direction string (`"up"`, `"down"`, `"left"`, `"right"`, `"stop"`) and publishes the corresponding `geometry_msgs/Twist` to a ROS2 topic:
-
-```cpp
-void TwistDataChannel::HandleData(const TwistMessage& data) {
-    if      (data.direction == "up")    SendTwist( 2.0,  0.0);
-    else if (data.direction == "down")  SendTwist(-2.0,  0.0);
-    else if (data.direction == "left")  SendTwist( 2.0,  2.0);
-    else if (data.direction == "right") SendTwist( 2.0, -2.0);
-    else if (data.direction == "stop")  SendTwist( 0.0,  0.0);
-}
-```
+For a complete real-world implementation, see [`teleop_receiver.cpp`](https://github.com/ACSL-MOSAIC/mosaic-turtlebot3-wo-ros-example/blob/master/src/mosaic/teleop_receiver.cpp) from the TurtleBot3 example. It receives velocity commands from the dashboard and passes them to a shared context struct that the main loop reads, following the same pattern described above.
 
 ---
 
